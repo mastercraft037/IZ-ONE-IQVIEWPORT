@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="IZ*ONE members IQ overview — responsive, accessible UI with background layout." />
+  <meta name="theme-color" content="#ffd6e0" />
+  <title>IZ*ONE IQ Sensation!</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root{
+      --accent:#d6336c;
+      --muted:#666;
+      --card-bg: rgba(255,255,255,0.82);
+      --glass-blur: 8px;
+      --max-width:1000px;
+    }
+
+    html,body{ height:100%; }
+
+    body {
+      font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+      color: #222;
+      line-height: 1.6;
+      background-color: #ff9a9e; /* fallback */
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding: 2rem;
+    }
+
+    /* Full-bleed layout background with overlay for readability */
+    .layout {
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      position: relative;
+      background-image: url('https://i.redd.it/r15hxx434a661.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .layout::before{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,154,158,0.25), rgba(250,208,196,0.25));
+      backdrop-filter: none;
+      pointer-events: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      position: relative;
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 2.2rem;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.16);
+      backdrop-filter: blur(var(--glass-blur));
+      z-index: 1;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2.0rem;
+      color: var(--accent);
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.06);
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #444;
+      margin-top: 0.5rem;
+    }
+
+    /* Table styles */
+    .table-wrap {
+      margin-top: 1.25rem;
+      overflow-x: auto;
+      border-radius: 12px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px; /* allow horizontal scroll on small screens */
+    }
+
+    th, td {
+      padding: 0.9rem 0.8rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      vertical-align: middle;
+      font-size: 0.95rem;
+    }
+
+    th {
+      background-color: rgba(248,215,218,0.95);
+      color: var(--accent);
+      font-weight: 700;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+
+    thead th {
+      border-bottom-width: 2px;
+    }
+
+    tr:hover td {
+      background-color: rgba(255,240,243,0.7);
+    }
+
+    .ko {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 0.95em;
+      color: var(--muted);
+    }
+
+    /* Make the first cell of each row a header for accessibility */
+    tbody th {
+      font-weight: 600;
+      text-align: left;
+      color: #333;
+      background: transparent;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+      padding-left: 1rem;
+    }
+
+    caption {
+      caption-side: top;
+      text-align: left;
+      font-size: 0.9rem;
+      color: #666;
+      padding-bottom: 0.5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      body { padding: 1rem; }
+      .layout { padding: 1rem; }
+      .container { padding: 1.1rem; border-radius:12px; }
+      h1 { font-size: 1.4rem; }
+      th, td { padding: 0.6rem 0.5rem; font-size: 0.92rem; }
+      table { min-width: 680px; }
+    }
+
+    /* Respect reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+    }
+
+    /* Small polish for keyboard focus */
+    a, button {
+      outline-color: rgba(214,51,108,0.3);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="layout" role="img" aria-label="Decorative floral background">
+    <div class="container" role="region" aria-labelledby="page-title">
+      <header>
+        <!-- Manchete em coreano, mantendo IZ*ONE e IQs em inglês -->
+        <h1 id="page-title">🤯 IZ*ONE 멤버들은 천재 수준의 IQs를 가지고 있다! 과학자들 충격! 🤯</h1>
+        <p class="subtitle">독점 IQ 데이터 공개 — 1위는 믿기 어려운 결과!</p>
+      </header>
+
+      <div class="table-wrap" role="region" aria-label="IZ*ONE IQ table">
+        <table>
+          <caption>Estimated IQ ranges and strengths (English / Korean)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Member (EN)</th>
+              <th scope="col" class="ko">멤버 (KO)</th>
+              <th scope="col">IQ Range</th>
+              <th scope="col">Strengths (EN)</th>
+              <th scope="col" class="ko">강점 (KO)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Miyawaki Sakura</th>
+              <td class="ko">미야와키 사쿠라</td>
+              <td>140&ndash;155</td>
+              <td>Logical-verbal &amp; Cognitive discipline</td>
+              <td class="ko">논리-언어적, 인지적 규율</td>
+            </tr>
+
+            <tr>
+              <th scope="row">Jang Wonyoung</th>
+              <td class="ko">장원영</td>
+              <td>145&ndash;150</td>
+              <td>Logical-mathematical &amp; Linguistics</td>
+              <td class="ko">논리-수학적, 언어학</td>
+            </tr>
+
+            <tr>
+              <th scope="row">Honda Hitomi</th>
+              <td class="ko">혼다 히토미</td>
+              <td>135&ndash;140</td>
+              <td>Logic &amp; Organizational</td>
+              <td class="ko">논리적, 조직력</td>
+            </tr>
+
+            <tr>
+              <th scope="row">Kwon Eunbi</th>
+              <td class="ko">권은비</td>
+              <td>130&ndash;135</td>
+              <td>Technical-scientific</td>
+              <td class="ko">기술-과학적</td>
+            </tr>
+
+            <tr>
+              <th scope="row">An Yujin</th>
+              <td class="ko">안유진</td>
+              <td>130&ndash;135</td>
+              <td>Analytical &amp; Adaptive</td>
+              <td class="ko">분석적, 적응력</td>
+            </tr>
+
+            <tr>
+              <th scope="row">Lee Chaeyeon</th>
+              <td class="ko">이채연</td>
+              <td>125&ndash;130</td>
+              <td>Linguistic &amp; Emotional</td>
+              <td class="ko">언어적, 정서적</td>
+            </tr>
+
+            <tr>
+              <th scope="row">Kim Minju</th>
+              <td class="ko">김민주</td>
+              <td>125&ndash;130</td>
+              <td>Musical &amp; Linguistic</td>
+              <td class="ko">음악적, 언어적</td>
+            </tr>
+
+            <tr>
+              <th scope="row">Yabuki Nako</th>
+              <td class="ko">야부키 나코</td>
+              <td>120&ndash;125</td>
+              <td>Kinesthetic &amp; Spatial</td>
+              <td class="ko">신체-운동적, 공간적</td>
+            </tr>
+
+            <tr>
+              <th scope="row">Jo Yuri</th>
+              <td class="ko">조유리</td>
+              <td>120&ndash;125</td>
+              <td>Musical &amp; Emotional</td>
+              <td class="ko">음악적, 정서적</td>
+            </tr>
+
+            <tr>
+              <th scope="row">Kim Chaewon</th>
+              <td class="ko">김채원</td>
+              <td>115&ndash;120</td>
+              <td>Musical &amp; Creative</td>
+              <td class="ko">음악적, 창의적</td>
+            </tr>
+
+            <tr>
+              <th scope="row">Kang Hyewon</th>
+              <td class="ko">강혜원</td>
+              <td>115&ndash;120</td>
+              <td>Practical &amp; Adaptive</td>
+              <td class="ko">실용적, 적응력</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
